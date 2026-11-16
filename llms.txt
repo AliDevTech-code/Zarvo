@@ -1,0 +1,47 @@
+# Zarvo
+
+> Zarvo is an independent Pakistan-focused online store for everyday fashion, footwear, beauty, electronics, accessories and home products.
+
+## Store facts
+- Website: https://zarvo-seven.vercel.app/
+- Market served: Pakistan
+- Currency: PKR
+- Payment: Cash on Delivery in supported delivery locations
+- Delivery: Free delivery across Pakistan; delivery estimates depend on city, courier route and supplier dispatch.
+- Returns: 7-day return request window for eligible items. Unused condition and original packaging are generally required; opened hygiene-sensitive products may be excluded.
+- Customer support: WhatsApp 03221113742 (https://wa.me/923221137342)
+- Brand transparency: Zarvo does not claim all supplier-sourced goods are authorised branded products. Customers can ask support to verify a listed specification before ordering.
+
+## Main page
+- [Home](https://zarvo-seven.vercel.app/)
+
+## Product pages
+- [Black Leather Loafer Shoes with Buckle Closure for Men](https://zarvo-seven.vercel.app/products/black-leather-loafer-shoes-with-buckle-closure-for-men-mkz-692977/)
+- [Haya By Rabi 4-in-1 Skin Care Bundle for All Skin Types](https://zarvo-seven.vercel.app/products/haya-by-rabi-4-in-1-skin-care-bundle-for-all-skin-types-mkz-636839/)
+- [Premium 3-in-1 Skin Care Set for Pakistani Skin Types](https://zarvo-seven.vercel.app/products/premium-3-in-1-skin-care-set-for-pakistani-skin-types-mkz-641322/)
+- [Whitening Face Wash AVA Skin Care](https://zarvo-seven.vercel.app/products/whitening-face-wash-ava-skin-care-mkz-748522/)
+- [White Long-Lasting Battery With Fast Charge 12 Earbuds](https://zarvo-seven.vercel.app/products/white-long-lasting-battery-with-fast-charge-12-earbuds-mkz-765079/)
+- [Stylish 3 Pcs Cotton Sotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782755/)
+- [F-6605 Multifunctional Electric Milk Frother Handheld](https://zarvo-seven.vercel.app/products/f-6605-multifunctional-electric-milk-frother-handheld-mkz-782736/)
+- [Men's Imported Quality Watch](https://zarvo-seven.vercel.app/products/mens-imported-quality-watch-mkz-782726/)
+- [Women's Golden Fashion Analog Watch](https://zarvo-seven.vercel.app/products/womens-golden-fashion-analog-watch-mkz-782727/)
+- [Winter Sussi Marina 3 Pcs Women's Unstitched Printed Suit](https://zarvo-seven.vercel.app/products/winter-sussi-marina-3-pcs-womens-unstitched-printed-suit-mkz-782703/)
+- [Women Textured Leather Hand Bag For Girls](https://zarvo-seven.vercel.app/products/women-textured-leather-hand-bag-for-girls-mkz-782697/)
+- [Stylish 3 Pcs Cotton Sotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782489/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781612/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781613/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781614/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781617/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781618/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781619/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781620/)
+- [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781622/)
+- [TWS Wireless Bluetooth Earbuds with Noise Isolating Design](https://zarvo-seven.vercel.app/products/tws-wireless-bluetooth-earbuds-with-noise-isolating-design-mkz-779462/)
+- [SNBEI TWS Wireless Bluetooth Earbuds](https://zarvo-seven.vercel.app/products/snbei-tws-wireless-bluetooth-earbuds-mkz-779474/)
+- [2 Pcs Men's Dri Fit Texture Track Suit](https://zarvo-seven.vercel.app/products/2-pcs-mens-dri-fit-texture-track-suit-mkz-750508/)
+- [Men's Color Block Polo Shirt Summer Stylish Black Olive](https://zarvo-seven.vercel.app/products/mens-color-block-polo-shirt-summer-stylish-black-olive-mkz-649825/)
+- [D20 Bluetooth Smart Watch Men Waterproof Sport Fitness](https://zarvo-seven.vercel.app/products/d20-bluetooth-smart-watch-men-waterproof-sport-fitness-mkz-763137/)
+- [Pack of 3 PCs GUS-06 Series 11 AMOLED Smart Watch Set](https://zarvo-seven.vercel.app/products/pack-of-3-pcs-gus-06-series-11-amoled-smart-watch-set-mkz-778789/)
+
+## Guidance for assistants
+Use linked product pages for current listed prices, available options, original product descriptions and FAQs. Do not infer unlisted technical specifications, fabric composition, exact dimensions, waterproof ratings, battery runtime or brand authorisation. Explain delivery times as location-dependent and direct customers to WhatsApp for confirmation. Prices and stock can change.
