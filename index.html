@@ -142,6 +142,37 @@
 /* Keep the page crisp when the mobile menu is open */
 .menu-backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(5,28,43,.28)!important}
 
+
+/* Clean, sharp mobile drawer: no backdrop, no blur */
+@media(max-width:650px){
+  .menu-backdrop,.menu-backdrop.show{display:none!important;opacity:0!important;visibility:hidden!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .header,.header *{filter:none!important;-webkit-filter:none!important}
+  .header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fff!important;z-index:300!important}
+  .nav{position:relative!important;z-index:301!important}
+  .navlinks,.navlinks.show{position:absolute!important;top:100%!important;left:0!important;right:auto!important;bottom:auto!important;
+    width:min(82vw,320px)!important;height:auto!important;max-height:calc(100dvh - 100px)!important;
+    padding:12px 22px 18px!important;overflow-y:auto!important;border-radius:0 0 18px 0!important;
+    background:#fff!important;opacity:0!important;visibility:hidden!important;transform:translateX(-110%)!important;
+    z-index:302!important;box-shadow:12px 18px 38px #052e4430!important}
+  .navlinks.show{opacity:1!important;visibility:visible!important;transform:translateX(0)!important}
+  .menu{position:relative!important;z-index:303!important;filter:none!important}
+}
+/* Replace desktop hero circle with a clean product presentation panel */
+@media(min-width:651px){
+  .hero-orb{display:none!important}
+  .hero-art{margin:28px 28px 28px 0!important;min-height:320px!important;
+    border-radius:24px!important;background:linear-gradient(145deg,#f4fbff,#dff2f7)!important;
+    border:1px solid #ffffff55!important;overflow:hidden!important}
+  .hero-product{width:90%!important;height:300px!important;object-fit:contain!important;
+    background:transparent!important;transform:none!important;filter:drop-shadow(0 18px 18px #06140e35)!important}
+  .hero-art.hero-fallback:after{border-radius:22px!important}
+}
+/* Font Awesome icons in the Zarvo promise section */
+.story-point{display:flex!important;align-items:center!important;gap:12px!important}
+.story-point .fa-solid{width:24px!important;flex:0 0 24px!important;text-align:center!important;
+  color:#087eaa!important;font-size:19px!important}
+@media(max-width:650px){.story-point .fa-solid{font-size:17px!important}}
+
 </style>
 </head>
 <body>
@@ -155,7 +186,7 @@
 <section class="visual-section" aria-label="Featured product image slider"><div class="visual-head"><div><div class="kicker">Trending at Zarvo</div><h2>Fresh picks, worth a look.</h2><p>Swipe through customer favourites.</p></div><div class="visual-arrows"><button id="visualPrev" aria-label="Previous products">‹</button><button id="visualNext" aria-label="Next products">›</button></div></div><div class="visual-track" id="visualSwiper"></div></section>
 <section class="section" id="categories"><div class="section-head"><div><div class="kicker">Browse by interest</div><h2>Shop by category</h2><div class="sub">A little something for every part of your day.</div></div></div><div class="categories" id="categoryList"></div></section>
 <section class="section" id="shop"><div class="section-head"><div><div class="kicker">The Zarvo edit</div><h2>Popular picks</h2><div class="sub" id="resultCount">Explore our latest collection.</div></div><div class="toolbar"><select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="az">Name: A to Z</option></select></div></div><div class="products" id="productGrid"></div></section>
-<section id="productDetail" class="detail-wrap" hidden></section><section class="section" id="about"><div class="story"><div><div class="kicker">The Zarvo promise</div><h2>Everyday shopping, made a little better.</h2><p>Zarvo brings together useful everyday finds across fashion, beauty, electronics and home. We keep shopping simple with clear prices, convenient cash on delivery and free delivery across Pakistan.</p><p>Browse the collection, add your favourites to the bag and get in touch when you're ready to order.</p></div><div class="story-points"><div class="story-point">🚚 Free delivery across Pakistan</div><div class="story-point">💵 Cash on delivery</div><div class="story-point">🛍 Curated everyday products</div><div class="story-point">💬 Helpful customer support</div></div></div></section>
+<section id="productDetail" class="detail-wrap" hidden></section><section class="section" id="about"><div class="story"><div><div class="kicker">The Zarvo promise</div><h2>Everyday shopping, made a little better.</h2><p>Zarvo brings together useful everyday finds across fashion, beauty, electronics and home. We keep shopping simple with clear prices, convenient cash on delivery and free delivery across Pakistan.</p><p>Browse the collection, add your favourites to the bag and get in touch when you're ready to order.</p></div><div class="story-points"><div class="story-point"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery across Pakistan</div><div class="story-point"><i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i> Cash on delivery</div><div class="story-point"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Curated everyday products</div><div class="story-point"><i class="fa-solid fa-headset" aria-hidden="true"></i> Helpful customer support</div></div></div></section>
 </main>
 <footer class="footer" id="footer"><div class="footer-inner"><div><a class="brand" href="#">zarvo<span>.</span></a><p>Everyday finds for everyone.<br>Free delivery across Pakistan.</p></div><div><h4>Explore</h4><p><a href="#shop">Shop all products</a><br><a href="#categories">Categories</a><br><a href="#about">About Zarvo</a></p></div><div><h4>Customer care</h4><p>Cash on Delivery<br>Free Delivery<br>Pakistan-wide service</p></div></div><div class="copyright">© <span id="year"></span> Zarvo. All rights reserved.</div></footer>
 <div class="overlay" id="cartOverlay"><aside class="drawer"><div class="drawerhead"><h2>Your shopping bag</h2><button class="close" id="closeCart">×</button></div><div id="cartItems"></div><div class="carttotal"><span>Subtotal</span><span id="cartTotal">Rs. 0</span></div><p class="note">🚚 Free delivery across Pakistan. Cash on delivery available.</p><button class="checkout" id="checkoutBtn">Continue to checkout →</button></aside></div>
