@@ -12,6 +12,10 @@
 <meta property="og:description" content="Discover fashion, beauty, electronics and home essentials. Free delivery across Pakistan.">
 <meta property="og:image" content="https://static.markaz.app/pakistan/products/317-135-279700-product-1.jpeg"><meta property="og:locale" content="en_PK">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Zarvo — Everyday Finds"><meta name="twitter:description" content="Shop everyday favourites with free delivery across Pakistan.">
+<meta property="og:url" content="https://zarvo-seven.vercel.app/">
+<meta property="og:image:alt" content="Shop everyday fashion, beauty, electronics and home essentials at Zarvo">
+<meta name="twitter:image" content="https://static.markaz.app/pakistan/products/317-135-279700-product-1.jpeg">
+<meta name="twitter:url" content="https://zarvo-seven.vercel.app/">
 <link rel="canonical" href="https://zarvo-seven.vercel.app/">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -279,7 +283,9 @@ const searchWrap=document.getElementById("searchWrap"),searchToggle=document.get
 searchToggle?.addEventListener("click",e=>{e.stopPropagation();searchWrap.classList.toggle("open");if(searchWrap.classList.contains("open"))searchInput.focus()});
 searchInput?.addEventListener("input",()=>{renderProducts();document.getElementById("shop")?.scrollIntoView({behavior:"smooth",block:"start"})});
 document.addEventListener("click",e=>{if(searchWrap&&!searchWrap.contains(e.target))searchWrap.classList.remove("open")});
-document.getElementById("year").textContent=new Date().getFullYear();renderCategories();renderProducts();saveCart();(function(){const heroMarquee=document.querySelector(".hero-mobile-marquee");if(heroMarquee){const picks=PRODUCTS.slice(0,12);const tiles=picks.map(p=>'<img src="'+esc(p[4])+'" alt="" loading="lazy">').join("");heroMarquee.innerHTML=tiles+tiles;}const host=document.getElementById("imageMarquee");if(!host)return;const items=PRODUCTS.slice(0,16);const make=arr=>arr.map(p=>'<div class="marquee-item"><img src="'+p[4]+'" alt="'+p[1]+'" loading="lazy" onerror="this.style.display=\'none\'"><span>'+p[1]+'</span></div>').join("");host.innerHTML=make(items)+make(items)})();
+document.getElementById("year").textContent=new Date().getFullYear();renderCategories();renderProducts();saveCart();
+if(location.hash.startsWith("#product/")){const initialProduct=decodeURIComponent(location.hash.slice(9));if(PRODUCTS.some(p=>p[0]===initialProduct))openProduct(initialProduct);}
+(function(){const heroMarquee=document.querySelector(".hero-mobile-marquee");if(heroMarquee){const picks=PRODUCTS.slice(0,12);const tiles=picks.map(p=>'<img src="'+esc(p[4])+'" alt="" loading="lazy">').join("");heroMarquee.innerHTML=tiles+tiles;}const host=document.getElementById("imageMarquee");if(!host)return;const items=PRODUCTS.slice(0,16);const make=arr=>arr.map(p=>'<div class="marquee-item"><img src="'+p[4]+'" alt="'+p[1]+'" loading="lazy" onerror="this.style.display=\'none\'"><span>'+p[1]+'</span></div>').join("");host.innerHTML=make(items)+make(items)})();
 (function initVisualSwiper(){
  const track=document.getElementById("visualSwiper");if(!track)return;
  track.innerHTML=PRODUCTS.slice(0,12).map(p=>'<article class="visual-card" data-visual="'+p[0]+'"><img src="'+p[4]+'" alt="'+p[1].replace(/"/g,'&quot;')+'" loading="lazy"><div><b>'+p[1]+'</b><span>'+money(p[3])+'</span></div></article>').join("");
