@@ -120,6 +120,28 @@
   .searchbox{display:flex;transition:width .22s ease,opacity .2s ease}
 }
 
+
+/* Search expands inward on small screens; live filtering */
+@media(max-width:650px){
+  .search-wrap .searchbox{
+    position:absolute!important;left:auto!important;right:46px!important;top:50%!important;
+    bottom:auto!important;transform:translateY(-50%)!important;
+    width:0!important;max-width:0!important;opacity:0!important;visibility:hidden!important;
+    overflow:hidden!important;padding:0!important;border:0!important;
+    transition:width .22s ease,opacity .2s ease!important;
+  }
+  .search-wrap.open .searchbox{
+    left:auto!important;right:46px!important;width:min(58vw,230px)!important;
+    max-width:min(58vw,230px)!important;opacity:1!important;visibility:visible!important;
+    transform:translateY(-50%)!important;padding:0 10px!important;
+    border:1px solid #b9e6ef!important;border-radius:24px!important;
+    background:#fff!important;box-shadow:0 5px 18px #087eaa18!important;
+  }
+  .search-wrap .searchbox input{width:100%!important;min-width:0!important}
+}
+/* Keep the page crisp when the mobile menu is open */
+.menu-backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:rgba(5,28,43,.28)!important}
+
 </style>
 </head>
 <body>
@@ -190,6 +212,7 @@ document.addEventListener("click",e=>{if(menu.classList.contains("show")&&!menu.
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeMenu();document.getElementById("searchWrap")?.classList.remove("open")}});
 const searchWrap=document.getElementById("searchWrap"),searchToggle=document.getElementById("searchToggle"),searchInput=document.getElementById("search");
 searchToggle?.addEventListener("click",e=>{e.stopPropagation();searchWrap.classList.toggle("open");if(searchWrap.classList.contains("open"))searchInput.focus()});
+searchInput?.addEventListener("input",()=>{renderProducts();document.getElementById("shop")?.scrollIntoView({behavior:"smooth",block:"start"})});
 document.addEventListener("click",e=>{if(searchWrap&&!searchWrap.contains(e.target))searchWrap.classList.remove("open")});
 document.getElementById("year").textContent=new Date().getFullYear();renderCategories();renderProducts();saveCart();(function(){const host=document.getElementById("imageMarquee");if(!host)return;const items=PRODUCTS.slice(0,16);const make=arr=>arr.map(p=>'<div class="marquee-item"><img src="'+p[4]+'" alt="'+p[1]+'" loading="lazy" onerror="this.style.display=\'none\'"><span>'+p[1]+'</span></div>').join("");host.innerHTML=make(items)+make(items)})();
 (function initVisualSwiper(){
