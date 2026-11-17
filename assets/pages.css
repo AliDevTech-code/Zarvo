@@ -1,0 +1,102 @@
+/* Zarvo static pages — product, policy and contact pages */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#f4fbff;color:#102b46;font:16px/1.7 "DM Sans",Arial,Helvetica,sans-serif}
+img{max-width:100%}
+a{color:#087eaa}
+a:hover{color:#056080}
+.top{background:#073b5a;color:#fff;text-align:center;padding:10px 14px;font-size:12px;font-weight:700;letter-spacing:.02em}
+.top b{color:#ffb066}
+.site-head{background:#fff;border-bottom:1px solid #dceaf1}
+.site-head .inner{max-width:1060px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand img{width:142px;height:47px;display:block}
+.head-links{display:flex;align-items:center;gap:18px;font-size:13px;font-weight:800}
+.head-links a{color:#153c59;text-decoration:none}
+.head-links a:hover{color:#087eaa}
+.wa-top{display:inline-flex;align-items:center;gap:6px;background:#1faa5c;color:#fff!important;padding:9px 15px;border-radius:22px;font-size:12px}
+.wa-top:hover{background:#18924e;color:#fff}
+.wrap{max-width:860px;margin:26px auto 40px;padding:0 18px}
+.crumbs{font-size:12px;color:#61758a;margin:0 0 16px}
+.crumbs a{color:#61758a;text-decoration:none}
+.crumbs a:hover{color:#087eaa}
+h1{font-family:Manrope,Arial,sans-serif;font-size:clamp(26px,4.4vw,38px);line-height:1.25;letter-spacing:-.8px;margin:0 0 12px}
+h2{font-family:Manrope,Arial,sans-serif;font-size:20px;line-height:1.35;margin:0 0 10px}
+h3{font-size:15px;margin:0 0 6px}
+p{margin:0 0 12px}
+ul{padding-left:20px;margin:0 0 14px}
+li{margin:5px 0}
+.lead{font-size:15px;color:#4a6478;margin:0 0 18px}
+.card{background:#fff;border:1px solid #dceaf1;border-radius:18px;padding:22px;margin:18px 0}
+.kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#087eaa;font-weight:800;margin:0 0 6px}
+.muted{color:#61758a;font-size:13px}
+.note{background:#eef8fc;border:1px solid #d5ebf3;border-radius:12px;padding:12px 14px;font-size:13px;color:#31536b;margin:16px 0 0}
+
+/* Product page */
+.product{display:grid;grid-template-columns:1fr 1fr;gap:26px;background:#fff;border:1px solid #dceaf1;border-radius:20px;padding:20px;align-items:start}
+.photo{background:linear-gradient(145deg,#f5fbfd,#e9f5f8);border-radius:14px;display:grid;place-items:center;min-height:340px;padding:12px}
+.photo img{width:100%;height:340px;object-fit:contain;mix-blend-mode:multiply}
+.cat{color:#087eaa;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.1em}
+.price{font:800 30px/1.2 Manrope,Arial,sans-serif;color:#07577b;margin:10px 0}
+.desc{line-height:1.85;color:#405d72;font-size:14px}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.points span{background:#f0faff;border-radius:10px;padding:9px 10px;font-size:11.5px;font-weight:800;color:#07577b}
+.options{font-size:12.5px;color:#4a6478;margin:0 0 16px}
+.options b{color:#123955}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:14px;padding:14px 20px;border-radius:28px;margin:8px 0 0}
+.btn-primary{background:linear-gradient(100deg,#087eaa,#1267b1);color:#fff}
+.btn-primary:hover{color:#fff;filter:brightness(1.05)}
+.btn-wa{background:#1faa5c;color:#fff}
+.btn-wa:hover{color:#fff;background:#18924e}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.trust div{background:#f2fafd;border:1px solid #dceaf1;border-radius:12px;padding:12px;font-size:12px;font-weight:800;color:#14526e;text-align:center}
+.faq{border-top:1px solid #e6eff4;padding:14px 0}
+.faq:first-of-type{border-top:0;padding-top:2px}
+.faq summary{font-weight:800;font-size:13.5px;cursor:pointer;color:#123955}
+.faq p{color:#526c80;font-size:13px;margin:9px 0 0}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.related a{display:block;background:#fff;border:1px solid #dceaf1;border-radius:12px;overflow:hidden;text-decoration:none;color:#123955}
+.related img{width:100%;height:120px;object-fit:contain;background:#f5fbfd;display:block;mix-blend-mode:multiply}
+.related b{display:block;font-size:11.5px;line-height:1.45;padding:9px 10px 2px;min-height:44px}
+.related span{display:block;padding:0 10px 10px;font-size:12px;font-weight:800;color:#087eaa}
+.link-more{display:inline-block;margin-top:10px;font-size:13px;font-weight:800;text-decoration:none}
+
+/* Policy / contact pages */
+.policy .card:first-of-type{margin-top:0}
+.policy h2{margin-top:22px}
+.policy h2:first-child{margin-top:0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-grid .card{margin:0}
+.contact-grid .card p:last-child{margin-bottom:0}
+.contact-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:#1faa5c;color:#fff;text-decoration:none;font-weight:800;padding:13px 18px;border-radius:26px;margin-top:10px}
+.contact-btn:hover{color:#fff;background:#18924e}
+
+.foot{background:#0b2b22;color:#cfe4da;margin-top:44px;padding:30px 18px 20px;font-size:12.5px}
+.foot .inner{max-width:1060px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.foot h4{color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}
+.foot a{color:#cfe4da;text-decoration:none}
+.foot a:hover{color:#fff}
+.foot p{line-height:2;margin:0}
+.foot .bottom{max-width:1060px;margin:22px auto 0;border-top:1px solid #ffffff22;padding-top:14px;font-size:11px;color:#9db6ab}
+.foot img{width:140px;height:46px;background:#fff;border-radius:8px;padding:4px 6px;margin-bottom:10px}
+@media(max-width:700px){
+  .product{grid-template-columns:1fr;padding:14px;gap:16px}
+  .photo{min-height:250px;padding:8px}
+  .photo img{height:250px}
+  .points{grid-template-columns:1fr 1fr}
+  .trust{grid-template-columns:1fr}
+  .related{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .head-links a:not(.wa-top){display:none}
+  .foot .inner{grid-template-columns:1fr 1fr}
+  .foot .inner>div:first-child{grid-column:1/-1}
+}
+
+/* Professional inline icon set */
+.ic{width:19px;height:19px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-4px}
+.points span{display:flex;align-items:center;gap:7px}
+.points .ic{width:17px;height:17px;color:#087eaa}
+.trust div{display:flex;align-items:center;justify-content:center;gap:7px}
+.trust .ic{width:18px;height:18px;color:#087eaa}
+.btn .ic{width:18px;height:18px;vertical-align:-4px;margin-right:5px}
+.top .ic{width:15px;height:15px;vertical-align:-3px;margin:0 3px 0 8px}
+.foot .ic{width:15px;height:15px;vertical-align:-3px}

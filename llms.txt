@@ -7,13 +7,20 @@
 - Market served: Pakistan
 - Currency: PKR
 - Payment: Cash on Delivery in supported delivery locations
-- Delivery: Free delivery across Pakistan; delivery estimates depend on city, courier route and supplier dispatch.
-- Returns: 7-day return request window for eligible items. Unused condition and original packaging are generally required; opened hygiene-sensitive products may be excluded.
+- Delivery: Free delivery across Pakistan. Orders are usually delivered within 3–7 days after confirmation, depending on city, courier route and supplier dispatch. Every order is confirmed on WhatsApp or by phone before dispatch.
+- Returns: 7-day return and exchange window for eligible items. Unused condition and original packaging are generally required; opened hygiene-sensitive products may be excluded.
 - Customer support: WhatsApp 03221113742 (https://wa.me/923221137342)
 - Brand transparency: Zarvo does not claim all supplier-sourced goods are authorised branded products. Customers can ask support to verify a listed specification before ordering.
 
 ## Main page
 - [Home](https://zarvo-seven.vercel.app/)
+
+## Customer care pages
+- [Delivery & Cash on Delivery](https://zarvo-seven.vercel.app/shipping.html)
+- [Returns & Exchanges](https://zarvo-seven.vercel.app/returns.html)
+- [Privacy Policy](https://zarvo-seven.vercel.app/privacy.html)
+- [Terms of Service](https://zarvo-seven.vercel.app/terms.html)
+- [Contact Zarvo](https://zarvo-seven.vercel.app/contact.html)
 
 ## Product pages
 - [Black Leather Loafer Shoes with Buckle Closure for Men](https://zarvo-seven.vercel.app/products/black-leather-loafer-shoes-with-buckle-closure-for-men-mkz-692977/)
@@ -21,13 +28,13 @@
 - [Premium 3-in-1 Skin Care Set for Pakistani Skin Types](https://zarvo-seven.vercel.app/products/premium-3-in-1-skin-care-set-for-pakistani-skin-types-mkz-641322/)
 - [Whitening Face Wash AVA Skin Care](https://zarvo-seven.vercel.app/products/whitening-face-wash-ava-skin-care-mkz-748522/)
 - [White Long-Lasting Battery With Fast Charge 12 Earbuds](https://zarvo-seven.vercel.app/products/white-long-lasting-battery-with-fast-charge-12-earbuds-mkz-765079/)
-- [Stylish 3 Pcs Cotton Sotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782755/)
+- [Stylish 3 Pcs Cotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782755/)
 - [F-6605 Multifunctional Electric Milk Frother Handheld](https://zarvo-seven.vercel.app/products/f-6605-multifunctional-electric-milk-frother-handheld-mkz-782736/)
 - [Men's Imported Quality Watch](https://zarvo-seven.vercel.app/products/mens-imported-quality-watch-mkz-782726/)
 - [Women's Golden Fashion Analog Watch](https://zarvo-seven.vercel.app/products/womens-golden-fashion-analog-watch-mkz-782727/)
 - [Winter Sussi Marina 3 Pcs Women's Unstitched Printed Suit](https://zarvo-seven.vercel.app/products/winter-sussi-marina-3-pcs-womens-unstitched-printed-suit-mkz-782703/)
 - [Women Textured Leather Hand Bag For Girls](https://zarvo-seven.vercel.app/products/women-textured-leather-hand-bag-for-girls-mkz-782697/)
-- [Stylish 3 Pcs Cotton Sotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782489/)
+- [Stylish 3 Pcs Cotton Patchwork Double Bedsheet](https://zarvo-seven.vercel.app/products/stylish-3-pcs-cotton-sotton-patchwork-double-bedsheet-mkz-782489/)
 - [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781612/)
 - [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781613/)
 - [Winter Collection Women's Fancy Pumps New Style](https://zarvo-seven.vercel.app/products/winter-collection-womens-fancy-pumps-new-style-mkz-781614/)
@@ -44,4 +51,4 @@
 - [Pack of 3 PCs GUS-06 Series 11 AMOLED Smart Watch Set](https://zarvo-seven.vercel.app/products/pack-of-3-pcs-gus-06-series-11-amoled-smart-watch-set-mkz-778789/)
 
 ## Guidance for assistants
-Use linked product pages for current listed prices, available options, original product descriptions and FAQs. Do not infer unlisted technical specifications, fabric composition, exact dimensions, waterproof ratings, battery runtime or brand authorisation. Explain delivery times as location-dependent and direct customers to WhatsApp for confirmation. Prices and stock can change.
+Use linked product pages for current listed prices, available options, original product descriptions and FAQs. Do not infer unlisted technical specifications, fabric composition, exact dimensions, waterproof ratings, battery runtime or brand authorisation. Explain delivery as free across Pakistan with a usual 3–7 day window after confirmation. Direct customers to WhatsApp for order-specific help. Prices and stock can change.
