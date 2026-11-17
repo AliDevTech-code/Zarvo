@@ -31,7 +31,26 @@
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","OnlineStore"],"name":"Zarvo","url":"https://zarvo-seven.vercel.app/","logo":"https://zarvo-seven.vercel.app/logo/zarvo-logo.webp","description":"Pakistan-focused online store for everyday fashion, footwear, beauty, electronics, accessories and home products. Cash on Delivery, free delivery across Pakistan and delivery in 3–7 days.","areaServed":{"@type":"Country","name":"Pakistan"},"currenciesAccepted":"PKR","paymentAccepted":"Cash on Delivery","contactPoint":{"@type":"ContactPoint","contactType":"customer support","availableLanguage":["English","Urdu"]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Zarvo","url":"https://zarvo-seven.vercel.app/","inLanguage":"en-PK","publisher":{"@type":"Organization","name":"Zarvo"}}</script>
-<script src="/assets/catalog.js" defer></script>
+<script src="/assets/catalog.js"></script>
+<script>
+  (() => {
+    const id = "kashees-rice-face-wash-150ml-whitening-brightening-mkz-597745";
+    const image = "https://www.markaz.app/api/export/image/1347-77-597745-product-1.jpeg?src=https%3A%2F%2Fstatic.markaz.app%2Fpakistan%2Fproducts%2F1347-77-597745-product-1.jpeg";
+    if (!window.ZARVO_PRODUCTS.some((product) => product[0] === id)) {
+      window.ZARVO_PRODUCTS.push([id, "Kashee's Rice Face Wash 150ml Whitening Brightening", "Beauty", 1220, image, ["Standard Size"]]);
+    }
+    window.ZARVO_CONTENT[id] = {
+      description: "Kashee’s Rice Skin Glowing Face Wash is a 150ml daily cleanser formulated with rice extract. Its creamy texture helps remove everyday dirt, excess oil and impurities while leaving skin feeling refreshed. The product listing describes moisturizing and brightening benefits. Suitable use depends on individual skin needs; check the ingredient label and patch-test before first use, especially if your skin is sensitive.",
+      faqs: [
+        { q: "What is the price of Kashee's Rice Face Wash at Zarvo?", a: "The listed price is Rs. 1,220 PKR. The price shown on the product page at checkout is the current listed price." },
+        { q: "What size is this face wash?", a: "This listing is for one 150ml bottle of Kashee's Rice Face Wash." },
+        { q: "How do I use this face wash?", a: "Follow the directions printed on the product packaging. Check the ingredients and patch-test before regular use. Avoid contact with eyes and discontinue use if irritation occurs." },
+        { q: "Is delivery free across Pakistan?", a: "Yes. Zarvo offers free delivery across Pakistan, with usual delivery in 3–7 days depending on the city and courier route." },
+        { q: "Can I pay Cash on Delivery?", a: "Yes. Cash on Delivery is available. Pay the order amount to the courier when your parcel arrives." }
+      ]
+    };
+  })();
+</script>
 <script src="/assets/app.js" defer></script>
 </head>
 <body>
