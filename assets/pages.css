@@ -105,3 +105,10 @@ li{margin:5px 0}
 .buy-form label{font:700 13px/1.2 Manrope,system-ui,sans-serif;color:#123955}
 .buy-form select{width:100%;padding:13px 14px;border:1px solid #cfe3ee;border-radius:12px;background:#fff;font:600 14px Manrope,system-ui,sans-serif;color:#123955}
 .buy-form .btn{width:100%}
+
+/* Product page buy button — match storefront BUY NOW */
+.buy-form .btn-primary{background:linear-gradient(100deg,#087eaa,#1267b1);border:0;text-transform:uppercase;letter-spacing:.03em;font-size:13px;box-shadow:0 10px 24px rgba(8,126,170,.22)}
+.buy-form .btn-primary:hover{filter:brightness(1.06)}
+.buy-form .btn-primary .ic{width:18px;height:18px;vertical-align:-3px;margin-right:4px}
+.product .btn-wa{background:#eefaf2;color:#128a4b;border:1px solid #bfe9cf;font-size:13px}
+.product .btn-wa:hover{background:#e2f6ea;color:#0f7a43}

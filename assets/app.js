@@ -148,7 +148,7 @@
           location.href = `/products/${p[0]}/`;
           return;
         }
-        if (addToCart(p[0], optionsOf(p)[0], true)) openCheckout();
+        if (addToCart(p[0], optionsOf(p)[0], true)) location.href = "/checkout.html";
       };
     });
   }
@@ -247,7 +247,7 @@
     $("detailBuy").onclick = () => {
       const v = chosenVariant();
       if (!v) return;
-      if (addToCart(id, v, true)) openCheckout();
+      if (addToCart(id, v, true)) location.href = "/checkout.html";
     };
 
     const related = [
@@ -662,7 +662,9 @@
     $("cartOverlay").onclick = (e) => {
       if (e.target.id === "cartOverlay") closeOverlay($("cartOverlay"));
     };
-    $("checkoutBtn").onclick = openCheckout;
+    $("checkoutBtn").onclick = () => {
+      if (cart.length) location.href = "/checkout.html";
+    };
     $("closeCheckout").onclick = () => closeOverlay($("checkoutModal"));
     $("cancelCheckout").onclick = () => {
       closeOverlay($("checkoutModal"));
@@ -685,16 +687,8 @@
     const params = new URLSearchParams(location.search);
     const addId = params.get("add");
     if (addId && findProduct(addId)) {
-      const p = findProduct(addId);
-      const opts = optionsOf(p);
-      const size = params.get("size") || (opts.length === 1 ? opts[0] : "");
-      history.replaceState({}, "", location.pathname);
-      if (opts.includes(size)) {
-        addToCart(addId, size, true);
-        openCheckout();
-      } else {
-        openProduct(addId);
-      }
+      location.replace("/checkout.html?" + params.toString());
+      return;
     }
 
     if (location.hash.startsWith("#product/")) {

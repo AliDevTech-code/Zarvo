@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-PK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout | Zarvo</title>
+<meta name="description" content="Complete your Zarvo order. Cash on Delivery, free delivery across Pakistan and delivery in 3–7 days.">
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#073b5a">
+<link rel="canonical" href="https://zarvo-seven.vercel.app/checkout.html">
+<link rel="icon" type="image/png" sizes="180x180" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/checkout.css">
+</head>
+<body>
+<div class="topline">CASH ON DELIVERY · <b>FREE DELIVERY ACROSS PAKISTAN</b> · DELIVERED IN 3–7 DAYS</div>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6.5h11v9H3z"/><path d="M14 9.5h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5h.01M18 14.5h.01"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8.4 12 3 3 8.4v7.2L12 21l9-5.4z"/><path d="M3 8.4 12 14l9-5.6"/><path d="M12 14v7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.4-3 8.2-7 10-4-1.8-7-5.6-7-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.7-5.2A8.5 8.5 0 1 1 21 11.5z"/><path d="M8.8 8.9c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.5.2.4.7 1.6.7 1.7.1.2.1.3 0 .5-.1.2-.2.3-.3.4l-.4.5c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.3-.2.6-1.3 1.2-1.8 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.6-2.1.9-2.4z"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="nav co-nav">
+    <a class="brand-image" href="/" aria-label="Zarvo home"><img src="/logo/zarvo-logo.webp" alt="Zarvo" width="150" height="48"></a>
+    <div class="navright">
+      <a class="co-back" href="/#shop">← Continue shopping</a>
+    </div>
+  </div>
+</header>
+
+<main class="co-wrap" id="checkoutMain">
+  <div class="co-head">
+    <p class="kicker">Secure checkout</p>
+    <h1>Delivery details</h1>
+    <p class="sub">Cash on Delivery · Free delivery across Pakistan · Delivered in 3–7 days</p>
+  </div>
+
+  <div class="co-grid">
+    <section class="co-card">
+      <form id="orderForm" novalidate>
+        <div class="formgrid">
+          <div class="field"><label for="customerName">Full name</label><input id="customerName" name="name" required autocomplete="name" placeholder="Receiver's full name"></div>
+          <div class="field"><label for="customerPhone">Mobile number</label><input id="customerPhone" name="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="0300 1234567"><small class="variant-hint" style="margin:0">WhatsApp or call for order confirmation</small></div>
+          <div class="field"><label for="customerHouse">House / Flat / Building</label><input id="customerHouse" required placeholder="House or flat number"></div>
+          <div class="field"><label for="customerStreet">Street / Road</label><input id="customerStreet" required placeholder="Street or road name"></div>
+          <div class="field full"><label for="customerArea">Area / Locality</label><input id="customerArea" required placeholder="Area, sector, village or locality"></div>
+          <div class="field full"><label for="customerLandmark">Nearby landmark (optional)</label><input id="customerLandmark" placeholder="Mosque, school, shop, etc."></div>
+          <div class="field"><label for="customerCity">City</label><input id="customerCity" required autocomplete="address-level2" placeholder="City"></div>
+          <div class="field"><label for="customerProvince">Province / Region</label><select id="customerProvince" required><option value="">Select province</option><option>Sindh</option><option>Punjab</option><option>Khyber Pakhtunkhwa</option><option>Balochistan</option><option>Islamabad Capital Territory</option><option>Azad Jammu &amp; Kashmir</option><option>Gilgit-Baltistan</option></select></div>
+          <div class="field full"><label for="customerPostal">Postal code (optional)</label><input id="customerPostal" inputmode="numeric" placeholder="Postal code"></div>
+          <div class="field full"><label for="customerNote">Order note (optional)</label><input id="customerNote" placeholder="Colour, timing or any special instruction"></div>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="companyWebsite">Company website<input id="companyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off"></label></div>
+        <p class="form-note"><span><svg class="ic"><use href="#i-cash"/></svg> Cash on Delivery</span><span><svg class="ic"><use href="#i-truck"/></svg> Free delivery</span><span><svg class="ic"><use href="#i-box"/></svg> Delivered in 3–7 days</span></p>
+        <div id="orderResult" class="form-error" role="alert"></div>
+        <button class="co-submit" id="placeOrder" type="submit"><svg class="ic"><use href="#i-bag"/></svg> Place order</button>
+        <p class="co-secure"><svg class="ic"><use href="#i-shield"/></svg> No advance payment. Our team confirms your order before dispatch.</p>
+      </form>
+    </section>
+
+    <aside class="co-card co-summary-card">
+      <div class="co-summary-head"><h2>Your order</h2><a href="/#shop">Edit bag</a></div>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <div class="cart-promise"><svg class="ic"><use href="#i-truck"/></svg> Free delivery · <svg class="ic"><use href="#i-cash"/></svg> COD · <svg class="ic"><use href="#i-box"/></svg> 3–7 days</div>
+      <p class="note">You pay cash to the courier when your parcel arrives. Delivery is free across Pakistan.</p>
+    </aside>
+  </div>
+</main>
+
+<section class="co-empty" id="coEmpty" hidden>
+  <div class="co-empty-box">
+    <svg class="ic"><use href="#i-bag"/></svg>
+    <h2>Your bag is empty</h2>
+    <p>Add a product first, then return here to complete your order.</p>
+    <a class="co-submit" href="/#shop">Start shopping</a>
+  </div>
+</section>
+
+<section class="co-success" id="orderSuccess" hidden>
+  <div class="success-box">
+    <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></div>
+    <h2>Order placed successfully</h2>
+    <p class="success-sub">Thank you! Our team will confirm your order on WhatsApp or by phone shortly. Please keep your phone available.</p>
+    <div class="order-id"><span>Order ID</span><b id="successOrderId">—</b></div>
+    <div class="success-summary" id="successSummary"></div>
+    <div class="success-points"><div><svg class="ic"><use href="#i-cash"/></svg> Cash on Delivery</div><div><svg class="ic"><use href="#i-truck"/></svg> Free delivery</div><div><svg class="ic"><use href="#i-box"/></svg> 3–7 days</div></div>
+    <div class="success-actions">
+      <a class="btn-wa" id="successWhatsApp" href="https://wa.me/923221137342" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> Confirm on WhatsApp</a>
+      <a class="btn-ghost" href="/">Continue shopping</a>
+    </div>
+    <p class="success-hint">Take a screenshot of this Order ID for any questions about your parcel.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand-image" href="/"><img src="/logo/zarvo-logo.webp" alt="Zarvo" width="150" height="48" loading="lazy"></a>
+      <p>Everyday finds for Pakistan. Cash on Delivery, free delivery and delivery in 3–7 days.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <p><a href="/#shop">All products</a><br><a href="/#categories">Categories</a></p>
+    </div>
+    <div>
+      <h4>Customer care</h4>
+      <p><a href="/shipping.html">Delivery &amp; COD</a><br><a href="/returns.html">Returns</a><br><a href="/privacy.html">Privacy</a><br><a href="/terms.html">Terms</a><br><a href="/contact.html">Contact</a></p>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Zarvo · <a href="https://wa.me/923221137342?text=Assalam%20o%20Alaikum%2C%20I%20need%20help%20with%20a%20Zarvo%20order." target="_blank" rel="noopener">WhatsApp support</a></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/assets/catalog.js" defer></script>
+<script src="/assets/checkout.js" defer></script>
+</body>
+</html>
