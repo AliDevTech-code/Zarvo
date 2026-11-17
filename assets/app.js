@@ -622,10 +622,11 @@
   }
 
   function initBanners() {
+    /* The hero background collage is hidden on every screen size and cost
+       24 extra full-size product images on phones, so it is not built. */
     const mobile = document.querySelector(".hero-mobile-marquee");
     if (mobile) {
-      const tiles = PRODUCTS.slice(0, 12).map((p) => `<img src="${esc(p[4])}" alt="" loading="lazy">`).join("");
-      mobile.innerHTML = tiles + tiles;
+      mobile.innerHTML = "";
     }
     const marquee = $("imageMarquee");
     if (marquee) {
