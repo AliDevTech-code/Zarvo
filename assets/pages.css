@@ -112,3 +112,8 @@ li{margin:5px 0}
 .buy-form .btn-primary .ic{width:18px;height:18px;vertical-align:-3px;margin-right:4px}
 .product .btn-wa{background:#eefaf2;color:#128a4b;border:1px solid #bfe9cf;font-size:13px}
 .product .btn-wa:hover{background:#e2f6ea;color:#0f7a43}
+
+/* Product share button */
+.btn-share{display:flex;align-items:center;justify-content:center;gap:7px;background:#eef7fd;color:#07577b;border:1px solid #cfe4f1;font-size:13px;cursor:pointer;font-family:inherit}
+.btn-share:hover{background:#e2f1fa;color:#07577b}
+.btn-share .ic{width:17px;height:17px;margin:0}
