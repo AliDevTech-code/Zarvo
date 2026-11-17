@@ -100,3 +100,8 @@ li{margin:5px 0}
 .btn .ic{width:18px;height:18px;vertical-align:-4px;margin-right:5px}
 .top .ic{width:15px;height:15px;vertical-align:-3px;margin:0 3px 0 8px}
 .foot .ic{width:15px;height:15px;vertical-align:-3px}
+
+.buy-form{display:flex;flex-direction:column;gap:10px;margin:18px 0 12px}
+.buy-form label{font:700 13px/1.2 Manrope,system-ui,sans-serif;color:#123955}
+.buy-form select{width:100%;padding:13px 14px;border:1px solid #cfe3ee;border-radius:12px;background:#fff;font:600 14px Manrope,system-ui,sans-serif;color:#123955}
+.buy-form .btn{width:100%}

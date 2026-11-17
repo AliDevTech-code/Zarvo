@@ -73,7 +73,7 @@ export default async function handler(req, res) {
   if (rateLimited(ip)) {
     return res.status(429).json({
       success: false,
-      error: "Too many order attempts. Please wait a few minutes or message us on WhatsApp at 0322 1137342.",
+      error: "Too many order attempts. Please wait a few minutes or message our WhatsApp support.",
     });
   }
 
@@ -193,7 +193,7 @@ export default async function handler(req, res) {
       console.error("Telegram order notification failed:", telegramData.description || telegramResponse.status);
       return res.status(502).json({
         success: false,
-        error: "We could not send your order. Please try again, or message us on WhatsApp at 0322 1137342.",
+        error: "We could not send your order. Please try again, or message our WhatsApp support.",
       });
     }
 

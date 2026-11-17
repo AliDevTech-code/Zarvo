@@ -10,7 +10,6 @@
   const WHATSAPP_NUMBER = "923221137342";
   const DELIVERY_TEXT = "3–7 days";
   const CART_KEY = "zarvo-cart-v2";
-  const FAV_KEY = "zarvo-favorites";
   const MAX_QTY = 30;
 
   const $ = (id) => document.getElementById(id);
@@ -22,19 +21,9 @@
   const baseTitle = document.title;
 
   let activeCategory = "All";
-  let favorites = loadFavorites();
   let cart = loadCart();
 
   /* ---------------- storage ---------------- */
-  function loadFavorites() {
-    try {
-      const list = JSON.parse(localStorage.getItem(FAV_KEY) || "[]");
-      return Array.isArray(list) ? list : [];
-    } catch {
-      return [];
-    }
-  }
-
   function loadCart() {
     try {
       localStorage.removeItem("zarvo-cart"); // legacy format (no size)
@@ -114,57 +103,53 @@
   function productCard(p) {
     const [id, name, category, price, image] = p;
     const multi = optionsOf(p).length > 1;
-    const fav = favorites.includes(id);
     return `
       <article class="card" data-product="${esc(id)}">
-        <div class="photo">
+        <a class="photo" href="/products/${esc(id)}/" aria-label="${esc(name)}">
           <span class="tag">${esc(category)}</span>
           <img src="${esc(image)}" alt="${esc(name)}" loading="lazy" decoding="async"
                onerror="this.parentElement.classList.add('image-fallback');this.remove()">
-        </div>
+        </a>
         <div class="cardbody">
           <div class="category">${esc(category)}</div>
-          <h3><a class="card-link" href="/products/${esc(id)}/" data-open="${esc(id)}">${esc(name)}</a></h3>
+          <h3><a class="card-link" href="/products/${esc(id)}/">${esc(name)}</a></h3>
           <div class="price">${money(price)}</div>
           <div class="product-actions">
-            <button class="heart-add ${fav ? "is-favorite" : ""}" aria-label="Save to wishlist" aria-pressed="${fav}" data-heart="${esc(id)}">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.8 8.7c0 5.2-8.8 11-8.8 11S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
+            <button class="bag-add" type="button" aria-label="Add ${esc(name)} to bag" data-bag="${esc(id)}">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
             </button>
-            <button class="buy-now" data-buy="${esc(id)}">${multi ? "SELECT SIZE" : "ADD TO BAG"}</button>
+            <button class="buy-now" type="button" data-buy="${esc(id)}">BUY NOW</button>
           </div>
         </div>
       </article>`;
   }
 
   function bindCards(root) {
-    root.querySelectorAll("[data-heart]").forEach((btn) => {
+    root.querySelectorAll("[data-bag]").forEach((btn) => {
       btn.onclick = (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        toggleFavorite(btn.dataset.heart, btn);
-      };
-    });
-    root.querySelectorAll("[data-buy]").forEach((btn) => {
-      btn.onclick = (e) => {
-        e.stopPropagation();
-        const p = findProduct(btn.dataset.buy);
+        const p = findProduct(btn.dataset.bag);
         if (!p) return;
         if (optionsOf(p).length > 1) {
-          openProduct(p[0]);
-          toast("Choose your size first");
+          location.href = `/products/${p[0]}/`;
           return;
         }
         addToCart(p[0], optionsOf(p)[0]);
       };
     });
-    root.querySelectorAll("[data-open]").forEach((link) => {
-      link.onclick = (e) => {
+    root.querySelectorAll("[data-buy]").forEach((btn) => {
+      btn.onclick = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        openProduct(link.dataset.open);
+        const p = findProduct(btn.dataset.buy);
+        if (!p) return;
+        if (optionsOf(p).length > 1) {
+          location.href = `/products/${p[0]}/`;
+          return;
+        }
+        if (addToCart(p[0], optionsOf(p)[0], true)) openCheckout();
       };
-    });
-    root.querySelectorAll(".card[data-product]").forEach((card) => {
-      card.onclick = () => openProduct(card.dataset.product);
     });
   }
 
@@ -190,18 +175,6 @@
     bindCards(grid);
   }
 
-  function toggleFavorite(id, button) {
-    const i = favorites.indexOf(id);
-    if (i >= 0) favorites.splice(i, 1);
-    else favorites.push(id);
-    localStorage.setItem(FAV_KEY, JSON.stringify(favorites));
-    if (button) {
-      button.classList.toggle("is-favorite", favorites.includes(id));
-      button.setAttribute("aria-pressed", String(favorites.includes(id)));
-    }
-    toast(favorites.includes(id) ? "Saved to wishlist" : "Removed from wishlist");
-  }
-
   /* ---------------- product detail ---------------- */
   function openProduct(id) {
     const p = findProduct(id);
@@ -210,7 +183,6 @@
     const content = CONTENT[id] || { description: "A selected everyday product from Zarvo.", faqs: [] };
     const opts = optionsOf(p);
     const multi = opts.length > 1;
-    const fav = favorites.includes(id);
     const faqMarkup = (content.faqs || [])
       .map((f) => `<details class="product-faq"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`)
       .join("");
@@ -244,10 +216,9 @@
                <p class="variant-hint">Not sure about the size? Message us on WhatsApp before ordering.</p>`
             : `<p class="variant-hint" style="margin:0 0 14px"><b>Option:</b> ${esc(opts[0])}</p>`}
           <div class="detail-actions">
-            <button class="heart-add ${fav ? "is-favorite" : ""}" id="detailHeart" aria-label="Save to wishlist" aria-pressed="${fav}">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.8 8.7c0 5.2-8.8 11-8.8 11S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.6Z"/></svg>
+            <button class="bag-add" id="detailBag" type="button" aria-label="Add to bag">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
             </button>
-            <button class="add-cart" id="detailAdd" type="button">ADD TO BAG</button>
             <button class="buy-now" id="detailBuy" type="button">BUY NOW</button>
           </div>
           <a class="detail-wa" href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Assalam o Alaikum, I have a question about ${name} (${money(price)}) on Zarvo.`)}" target="_blank" rel="noopener">Ask about this product on WhatsApp →</a>
@@ -269,8 +240,7 @@
     };
 
     $("backShop").onclick = closeProduct;
-    $("detailHeart").onclick = () => toggleFavorite(id, $("detailHeart"));
-    $("detailAdd").onclick = () => {
+    $("detailBag").onclick = () => {
       const v = chosenVariant();
       if (v) addToCart(id, v);
     };
@@ -669,9 +639,8 @@
     const track = $("visualSwiper");
     if (track) {
       track.innerHTML = PRODUCTS.slice(0, 12)
-        .map((p) => `<article class="visual-card" data-visual="${esc(p[0])}"><img src="${esc(p[4])}" alt="${esc(p[1])}" loading="lazy"><div><b>${esc(p[1])}</b><span>${money(p[3])}</span></div></article>`)
+        .map((p) => `<a class="visual-card" href="/products/${esc(p[0])}/"><img src="${esc(p[4])}" alt="${esc(p[1])}" loading="lazy"><div><b>${esc(p[1])}</b><span>${money(p[3])}</span></div></a>`)
         .join("");
-      track.querySelectorAll("[data-visual]").forEach((card) => card.addEventListener("click", () => openProduct(card.dataset.visual)));
       $("visualPrev")?.addEventListener("click", () => track.scrollBy({ left: -430, behavior: "smooth" }));
       $("visualNext")?.addEventListener("click", () => track.scrollBy({ left: 430, behavior: "smooth" }));
     }
@@ -712,6 +681,21 @@
     window.addEventListener("popstate", () => {
       if (!location.hash.startsWith("#product/")) closeProduct();
     });
+
+    const params = new URLSearchParams(location.search);
+    const addId = params.get("add");
+    if (addId && findProduct(addId)) {
+      const p = findProduct(addId);
+      const opts = optionsOf(p);
+      const size = params.get("size") || (opts.length === 1 ? opts[0] : "");
+      history.replaceState({}, "", location.pathname);
+      if (opts.includes(size)) {
+        addToCart(addId, size, true);
+        openCheckout();
+      } else {
+        openProduct(addId);
+      }
+    }
 
     if (location.hash.startsWith("#product/")) {
       const id = decodeURIComponent(location.hash.slice(9));

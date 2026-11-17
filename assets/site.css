@@ -290,3 +290,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* Slider arrows use the same professional icon set */
 .hero-controls>button,.visual-arrows button{display:grid;place-items:center}
 .hero-controls>button svg,.visual-arrows button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Buy now / add to bag actions */
+.card .photo{text-decoration:none}
+.visual-card{text-decoration:none;color:inherit}
+.bag-add{border:1px solid #b9e6ef;background:#e9faff;color:#087eaa;border-radius:12px;height:40px;display:grid;place-items:center}
+.bag-add:hover{background:#d8f6fb;color:#056080}
+.detail-actions{grid-template-columns:56px 1fr!important}
+.detail-actions .buy-now{background:linear-gradient(100deg,#087eaa,#1267b1);color:#fff;border:0;font-size:13px}
+.detail-actions .buy-now:hover{filter:brightness(1.05)}
