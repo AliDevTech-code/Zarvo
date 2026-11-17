@@ -38,3 +38,6 @@
   .co-back{padding:9px 12px;font-size:11px}
   .co-success{padding:26px 12px 50px}
 }
+.btn-print{background:#0b3b57;color:#fff;border:0;border-radius:30px;padding:13px;font:800 13px Manrope,sans-serif;cursor:pointer}
+.btn-print:hover{background:#0a2f45}
+#checkoutSuccess .success-box{margin:0 auto}

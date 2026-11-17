@@ -19,6 +19,7 @@
   const optionsOf = (p) => (Array.isArray(p[5]) && p[5].length ? p[5] : ["Standard Size"]);
 
   let cart = loadCart();
+  let lastOrder = null;
 
   function loadCart() {
     try {
@@ -80,7 +81,7 @@
 
   function showEmpty() {
     $("checkoutMain").hidden = true;
-    $("orderSuccess").hidden = true;
+    $("checkoutSuccess").hidden = true;
     $("coEmpty").hidden = false;
   }
 
@@ -108,7 +109,91 @@
 
   const prettyPhone = (d) => (d ? `${d.slice(0, 4)} ${d.slice(4)}` : "");
 
+  function receiptWhen(order) {
+    const d = order.placedAt || new Date();
+    try {
+      return d.toLocaleString("en-PK", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+    } catch {
+      return d.toString();
+    }
+  }
+
+  function receiptText(order) {
+    const items = (order.items || []).map((item, i) => {
+      const variant = item.variant ? " (" + item.variant + ")" : "";
+      return i + 1 + ". " + item.name + variant + " x " + item.quantity + " - " + money(item.lineTotal);
+    });
+    return [
+      "ZARVO - ORDER RECEIPT",
+      "=====================",
+      "Order ID : " + order.id,
+      "Date     : " + receiptWhen(order),
+      "Payment  : Cash on Delivery",
+      "Delivery : FREE, 3-7 days after confirmation",
+      "",
+      "CUSTOMER",
+      "Name     : " + order.name,
+      "Phone    : " + (order.phone || ""),
+      "Address  : " + order.address,
+      "",
+      "ITEMS",
+      "---------------------",
+      ...items,
+      "---------------------",
+      "TOTAL    : " + money(order.total),
+      "",
+      "Order ID ke sath WhatsApp par confirm karein.",
+      "Website  : https://zarvo-seven.vercel.app",
+      "Yeh receipt apne paas save kar ke rakhein.",
+    ].join("\n");
+  }
+
+  function downloadReceipt() {
+    if (!lastOrder) return;
+    const blob = new Blob([receiptText(lastOrder)], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Zarvo-" + lastOrder.id + "-receipt.txt";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 3000);
+    toast("Receipt downloaded");
+  }
+
+  function printReceipt() {
+    if (!lastOrder) return;
+    const o = lastOrder;
+    const rows = (o.items || [])
+      .map(
+        (item) =>
+          '<tr><td>' + esc(item.name) + (item.variant ? '<br><small>' + esc(item.variant) + '</small>' : "") + '</td><td class="c">' + item.quantity + '</td><td class="r">' + money(item.lineTotal) + '</td></tr>'
+      )
+      .join("");
+    const win = window.open("", "_blank");
+    if (!win) {
+      downloadReceipt();
+      return;
+    }
+    win.document.write(
+      '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zarvo Receipt ' + esc(o.id) + '</title>' +
+        '<style>*{box-sizing:border-box}body{margin:0;padding:28px;font:13px/1.6 Arial,Helvetica,sans-serif;color:#111;max-width:720px;margin:auto}h1{font-size:26px;margin:0 0 2px;letter-spacing:1px}h1 span{color:#087eaa}.muted{color:#666;font-size:12px;margin:0 0 18px}.box{border:1px solid #ddd;border-radius:10px;padding:14px;margin:0 0 14px}.box b{display:inline-block;min-width:80px}.oid{background:#073b5a;color:#fff;border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin:0 0 14px}.oid span{font-size:11px;letter-spacing:1px;opacity:.8}.oid strong{font-size:16px;letter-spacing:1px}table{width:100%;border-collapse:collapse;margin:0 0 14px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #e6e6e6;vertical-align:top}th{background:#f5f9fb;font-size:11px;letter-spacing:.05em;text-transform:uppercase}.c{text-align:center;width:50px}.r{text-align:right;white-space:nowrap}.tot{display:flex;justify-content:space-between;font-weight:bold;font-size:15px;padding:10px 0;border-top:2px solid #073b5a}.foot{color:#666;font-size:11px;line-height:1.7;margin-top:16px}@media print{body{padding:0}}</style></head><body>' +
+        '<h1>ZARVO<span>.</span></h1><p class="muted">Cash on Delivery · Free delivery across Pakistan · 3–7 days</p>' +
+        '<div class="oid"><span>ORDER ID</span><strong>' + esc(o.id) + '</strong></div>' +
+        '<div class="box"><div><b>Date:</b> ' + esc(receiptWhen(o)) + '</div><div><b>Name:</b> ' + esc(o.name) + '</div><div><b>Phone:</b> ' + esc(o.phone || "") + '</div><div><b>Address:</b> ' + esc(o.address) + '</div><div><b>Payment:</b> Cash on Delivery</div><div><b>Delivery:</b> Free · 3–7 days after confirmation</div></div>' +
+        '<table><thead><tr><th>Item</th><th class="c">Qty</th><th class="r">Amount</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+        '<div class="tot"><span>Total (COD)</span><span>' + money(o.total) + '</span></div>' +
+        '<p class="foot">Order ID ke sath WhatsApp par confirm karein.<br>Website: https://zarvo-seven.vercel.app<br>Yeh receipt apne paas save kar ke rakhein.</p>' +
+        '</body></html>'
+    );
+    win.document.close();
+    win.focus();
+    setTimeout(() => win.print(), 350);
+  }
+
   function showSuccess(order) {
+    lastOrder = Object.assign({}, order, { placedAt: new Date() });
     $("successOrderId").textContent = order.id;
     const rows = order.items
       .map(
@@ -123,7 +208,7 @@
     $("successWhatsApp").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     $("checkoutMain").hidden = true;
     $("coEmpty").hidden = true;
-    $("orderSuccess").hidden = false;
+    $("checkoutSuccess").hidden = false;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -221,6 +306,8 @@
     }
     renderSummary();
     $("orderForm").addEventListener("submit", submitOrder);
+    $("receiptDownload").onclick = downloadReceipt;
+    $("receiptPrint").onclick = printReceipt;
     $("year")?.replaceChildren(document.createTextNode(new Date().getFullYear()));
   }
 
